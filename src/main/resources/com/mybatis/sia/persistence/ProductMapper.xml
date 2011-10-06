@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mybatis.sia.persistence.ProductMapper">
+
+  <cache />
+
+  <select id="getListByProduct" parameterType="string" resultType="Product" flushCache="true" useCache="false">
+    SELECT
+      I.PRODUCTID,
+      I.CATEGORY,
+      I.NAME,
+      I.DESCRIPTION,
+      I.AMNT
+    FROM ITEM I
+    LIMIT #{rows}, 5
+  </select>
+
+  <select id="getProduct" parameterType="string" resultType="Product">
+    SELECT
+      I.PRODUCTID,
+      I.CATEGORY,
+      I.NAME,
+      I.DESCRIPTION,
+      I.AMNT
+    FROM ITEM I
+    where I.PRODUCTID = #{value}
+  </select>
+
+ <insert id="insertProduct" parameterType="Product">
+    INSERT INTO ITEM
+      (PRODUCTID, CATEGORY, NAME, DESCRIPTION, AMNT)
+    VALUES
+      (#{productId}, #{category},#{name},#{description},#{amnt})
+  </insert>
+
+ <insert id="updateProduct" parameterType="Product">
+    UPDATE ITEM SET
+      AMNT = #{amnt}
+    WHERE PRODUCTID = #{productId}
+  </insert>
+
+ <insert id="deleteProduct" parameterType="string">
+    DELETE FROM ITEM
+    WHERE PRODUCTID = #{productId}
+  </insert>
+
+</mapper>

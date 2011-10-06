@@ -1,0 +1,910 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+    "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=UTF-8" />
+<meta name="generator" content="AsciiDoc 8.6.3" />
+<title>SIA Installation Guide</title>
+<style type="text/css">
+/* Sans-serif font. */
+h1, h2, h3, h4, h5, h6,
+div.title, caption.title,
+thead, p.table.header,
+div#toctitle,
+span#author, span#revnumber, span#revdate, span#revremark,
+div#footer {
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+/* Serif font. */
+div.sectionbody {
+  font-family: Georgia,"Times New Roman",Times,serif;
+}
+
+/* Monospace font. */
+tt {
+  font-size: inherit;
+}
+
+body {
+  margin: 1em 5% 1em 5%;
+}
+
+a {
+  color: blue;
+  text-decoration: underline;
+}
+a:visited {
+  color: fuchsia;
+}
+
+em {
+  font-style: italic;
+  color: navy;
+}
+
+strong {
+  font-weight: bold;
+  color: #083194;
+}
+
+tt {
+  font-size: inherit;
+  color: navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #527bbd;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+  line-height: 1.3;
+}
+
+h1, h2, h3 {
+  border-bottom: 2px solid silver;
+}
+h2 {
+  padding-top: 0.5em;
+}
+h3 {
+  float: left;
+}
+h3 + * {
+  clear: left;
+}
+
+div.sectionbody {
+  margin-left: 0;
+}
+
+hr {
+  border: 1px solid silver;
+}
+
+p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+ul, ol, li > p {
+  margin-top: 0;
+}
+ul > li     { color: #aaa; }
+ul > li > * { color: black; }
+
+pre {
+  padding: 0;
+  margin: 0;
+}
+
+span#author {
+  color: #527bbd;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+span#email {
+}
+span#revnumber, span#revdate, span#revremark {
+}
+
+div#footer {
+  font-size: small;
+  border-top: 2px solid silver;
+  padding-top: 0.5em;
+  margin-top: 4.0em;
+}
+div#footer-text {
+  float: left;
+  padding-bottom: 0.5em;
+}
+div#footer-badges {
+  float: right;
+  padding-bottom: 0.5em;
+}
+
+div#preamble {
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+}
+div.tableblock, div.imageblock, div.exampleblock, div.verseblock,
+div.quoteblock, div.literalblock, div.listingblock, div.sidebarblock,
+div.admonitionblock {
+  margin-top: 1.0em;
+  margin-bottom: 1.5em;
+}
+div.admonitionblock {
+  margin-top: 2.0em;
+  margin-bottom: 2.0em;
+  margin-right: 10%;
+  color: #606060;
+}
+
+div.content { /* Block element content. */
+  padding: 0;
+}
+
+/* Block element titles. */
+div.title, caption.title {
+  color: #527bbd;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 1.0em;
+  margin-bottom: 0.5em;
+}
+div.title + * {
+  margin-top: 0;
+}
+
+td div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content div.title:first-child {
+  margin-top: 0.0em;
+}
+div.content + div.title {
+  margin-top: 0.0em;
+}
+
+div.sidebarblock > div.content {
+  background: #ffffee;
+  border: 1px solid #dddddd;
+  border-left: 4px solid #f0f0f0;
+  padding: 0.5em;
+}
+
+div.listingblock > div.content {
+  border: 1px solid #dddddd;
+  border-left: 5px solid #f0f0f0;
+  background: #f8f8f8;
+  padding: 0.5em;
+}
+
+div.quoteblock, div.verseblock {
+  padding-left: 1.0em;
+  margin-left: 1.0em;
+  margin-right: 10%;
+  border-left: 5px solid #f0f0f0;
+  color: #777777;
+}
+
+div.quoteblock > div.attribution {
+  padding-top: 0.5em;
+  text-align: right;
+}
+
+div.verseblock > pre.content {
+  font-family: inherit;
+  font-size: inherit;
+}
+div.verseblock > div.attribution {
+  padding-top: 0.75em;
+  text-align: left;
+}
+/* DEPRECATED: Pre version 8.2.7 verse style literal block. */
+div.verseblock + div.attribution {
+  text-align: left;
+}
+
+div.admonitionblock .icon {
+  vertical-align: top;
+  font-size: 1.1em;
+  font-weight: bold;
+  text-decoration: underline;
+  color: #527bbd;
+  padding-right: 0.5em;
+}
+div.admonitionblock td.content {
+  padding-left: 0.5em;
+  border-left: 3px solid #dddddd;
+}
+
+div.exampleblock > div.content {
+  border-left: 3px solid #dddddd;
+  padding-left: 0.5em;
+}
+
+div.imageblock div.content { padding-left: 0; }
+span.image img { border-style: none; }
+a.image:visited { color: white; }
+
+dl {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+dt {
+  margin-top: 0.5em;
+  margin-bottom: 0;
+  font-style: normal;
+  color: navy;
+}
+dd > *:first-child {
+  margin-top: 0.1em;
+}
+
+ul, ol {
+    list-style-position: outside;
+}
+ol.arabic {
+  list-style-type: decimal;
+}
+ol.loweralpha {
+  list-style-type: lower-alpha;
+}
+ol.upperalpha {
+  list-style-type: upper-alpha;
+}
+ol.lowerroman {
+  list-style-type: lower-roman;
+}
+ol.upperroman {
+  list-style-type: upper-roman;
+}
+
+div.compact ul, div.compact ol,
+div.compact p, div.compact p,
+div.compact div, div.compact div {
+  margin-top: 0.1em;
+  margin-bottom: 0.1em;
+}
+
+div.tableblock > table {
+  border: 3px solid #527bbd;
+}
+thead, p.table.header {
+  font-weight: bold;
+  color: #527bbd;
+}
+tfoot {
+  font-weight: bold;
+}
+td > div.verse {
+  white-space: pre;
+}
+p.table {
+  margin-top: 0;
+}
+/* Because the table frame attribute is overriden by CSS in most browsers. */
+div.tableblock > table[frame="void"] {
+  border-style: none;
+}
+div.tableblock > table[frame="hsides"] {
+  border-left-style: none;
+  border-right-style: none;
+}
+div.tableblock > table[frame="vsides"] {
+  border-top-style: none;
+  border-bottom-style: none;
+}
+
+
+div.hdlist {
+  margin-top: 0.8em;
+  margin-bottom: 0.8em;
+}
+div.hdlist tr {
+  padding-bottom: 15px;
+}
+dt.hdlist1.strong, td.hdlist1.strong {
+  font-weight: bold;
+}
+td.hdlist1 {
+  vertical-align: top;
+  font-style: normal;
+  padding-right: 0.8em;
+  color: navy;
+}
+td.hdlist2 {
+  vertical-align: top;
+}
+div.hdlist.compact tr {
+  margin: 0;
+  padding-bottom: 0;
+}
+
+.comment {
+  background: yellow;
+}
+
+.footnote, .footnoteref {
+  font-size: 0.8em;
+}
+
+span.footnote, span.footnoteref {
+  vertical-align: super;
+}
+
+#footnotes {
+  margin: 20px 0 20px 0;
+  padding: 7px 0 0 0;
+}
+
+#footnotes div.footnote {
+  margin: 0 0 5px 0;
+}
+
+#footnotes hr {
+  border: none;
+  border-top: 1px solid silver;
+  height: 1px;
+  text-align: left;
+  margin-left: 0;
+  width: 20%;
+  min-width: 100px;
+}
+
+div.colist td {
+  padding-right: 0.5em;
+  padding-bottom: 0.3em;
+  vertical-align: top;
+}
+div.colist td img {
+  margin-top: 0.3em;
+}
+
+@media print {
+  div#footer-badges { display: none; }
+}
+
+div#toc {
+  margin-bottom: 2.5em;
+}
+
+div#toctitle {
+  color: #527bbd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 1.0em;
+  margin-bottom: 0.1em;
+}
+
+div.toclevel1, div.toclevel2, div.toclevel3, div.toclevel4 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+div.toclevel2 {
+  margin-left: 2em;
+  font-size: 0.9em;
+}
+div.toclevel3 {
+  margin-left: 4em;
+  font-size: 0.9em;
+}
+div.toclevel4 {
+  margin-left: 6em;
+  font-size: 0.9em;
+}
+
+</style>
+<script type="text/javascript">
+/*<![CDATA[*/
+window.onload = function(){asciidoc.footnotes(); asciidoc.toc(2);}
+var asciidoc = {  // Namespace.
+
+/////////////////////////////////////////////////////////////////////
+// Table Of Contents generator
+/////////////////////////////////////////////////////////////////////
+
+/* Author: Mihai Bazon, September 2002
+ * http://students.infoiasi.ro/~mishoo
+ *
+ * Table Of Content generator
+ * Version: 0.4
+ *
+ * Feel free to use this script under the terms of the GNU General Public
+ * License, as long as you do not remove or alter this notice.
+ */
+
+ /* modified by Troy D. Hanson, September 2006. License: GPL */
+ /* modified by Stuart Rackham, 2006, 2009. License: GPL */
+
+// toclevels = 1..4.
+toc: function (toclevels) {
+
+  function getText(el) {
+    var text = "";
+    for (var i = el.firstChild; i != null; i = i.nextSibling) {
+      if (i.nodeType == 3 /* Node.TEXT_NODE */) // IE doesn't speak constants.
+        text += i.data;
+      else if (i.firstChild != null)
+        text += getText(i);
+    }
+    return text;
+  }
+
+  function TocEntry(el, text, toclevel) {
+    this.element = el;
+    this.text = text;
+    this.toclevel = toclevel;
+  }
+
+  function tocEntries(el, toclevels) {
+    var result = new Array;
+    var re = new RegExp('[hH]([2-'+(toclevels+1)+'])');
+    // Function that scans the DOM tree for header elements (the DOM2
+    // nodeIterator API would be a better technique but not supported by all
+    // browsers).
+    var iterate = function (el) {
+      for (var i = el.firstChild; i != null; i = i.nextSibling) {
+        if (i.nodeType == 1 /* Node.ELEMENT_NODE */) {
+          var mo = re.exec(i.tagName);
+          if (mo && (i.getAttribute("class") || i.getAttribute("className")) != "float") {
+            result[result.length] = new TocEntry(i, getText(i), mo[1]-1);
+          }
+          iterate(i);
+        }
+      }
+    }
+    iterate(el);
+    return result;
+  }
+
+  var toc = document.getElementById("toc");
+  var entries = tocEntries(document.getElementById("content"), toclevels);
+  for (var i = 0; i < entries.length; ++i) {
+    var entry = entries[i];
+    if (entry.element.id == "")
+      entry.element.id = "_toc_" + i;
+    var a = document.createElement("a");
+    a.href = "#" + entry.element.id;
+    a.appendChild(document.createTextNode(entry.text));
+    var div = document.createElement("div");
+    div.appendChild(a);
+    div.className = "toclevel" + entry.toclevel;
+    toc.appendChild(div);
+  }
+  if (entries.length == 0)
+    toc.parentNode.removeChild(toc);
+},
+
+
+/////////////////////////////////////////////////////////////////////
+// Footnotes generator
+/////////////////////////////////////////////////////////////////////
+
+/* Based on footnote generation code from:
+ * http://www.brandspankingnew.net/archive/2005/07/format_footnote.html
+ */
+
+footnotes: function () {
+  var cont = document.getElementById("content");
+  var noteholder = document.getElementById("footnotes");
+  var spans = cont.getElementsByTagName("span");
+  var refs = {};
+  var n = 0;
+  for (i=0; i<spans.length; i++) {
+    if (spans[i].className == "footnote") {
+      n++;
+      // Use [\s\S] in place of . so multi-line matches work.
+      // Because JavaScript has no s (dotall) regex flag.
+      note = spans[i].innerHTML.match(/\s*\[([\s\S]*)]\s*/)[1];
+      noteholder.innerHTML +=
+        "<div class='footnote' id='_footnote_" + n + "'>" +
+        "<a href='#_footnoteref_" + n + "' title='Return to text'>" +
+        n + "</a>. " + note + "</div>";
+      spans[i].innerHTML =
+        "[<a id='_footnoteref_" + n + "' href='#_footnote_" + n +
+        "' title='View footnote' class='footnote'>" + n + "</a>]";
+      var id =spans[i].getAttribute("id");
+      if (id != null) refs["#"+id] = n;
+    }
+  }
+  if (n == 0)
+    noteholder.parentNode.removeChild(noteholder);
+  else {
+    // Process footnoterefs.
+    for (i=0; i<spans.length; i++) {
+      if (spans[i].className == "footnoteref") {
+        var href = spans[i].getElementsByTagName("a")[0].getAttribute("href");
+        href = href.match(/#.*/)[0];  // Because IE return full URL.
+        n = refs[href];
+        spans[i].innerHTML =
+          "[<a href='#_footnote_" + n +
+          "' title='View footnote' class='footnote'>" + n + "</a>]";
+      }
+    }
+  }
+}
+
+}
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:65em">
+<div id="header">
+<h1>SIA Installation Guide</h1>
+<span id="author">Evgeni Bezmenov</span><br />
+<span id="email"><tt>&lt;<a href="mailto:evgeni.bezmenov@gmail.com">evgeni.bezmenov@gmail.com</a>&gt;</tt></span><br />
+<span id="revnumber">version 0.1.0,</span>
+<span id="revdate">23 Sep, 2011</span>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph"><p>Version is 0.1.0</p></div>
+<div class="dlist"><dl>
+<dt class="hdlist1">
+SIA - Simple Inventory Accounting Demo
+</dt>
+<dd>
+<p>
+The application keeps track on how many of each type of goods are in a stock. The application has a list of names (goods) and values
+(the amount in stock). The application has the following functions:
+</p>
+<div class="ulist"><ul>
+<li>
+<p>
+Main page that lists all goods and their amounts in stock.
+</p>
+</li>
+<li>
+<p>
+Users can add new goods to the list, so list size is not fixed.
+</p>
+</li>
+<li>
+<p>
+Users can name new goods and give initial amount in stock.
+</p>
+</li>
+<li>
+<p>
+Validating of input data.
+</p>
+</li>
+<li>
+<p>
+Users can delete goods from the listing.
+</p>
+</li>
+<li>
+<p>
+Users can change the listed amount of goods in stock.
+</p>
+</li>
+</ul></div>
+</dd>
+</dl></div>
+<div class="sidebarblock">
+<div class="content">
+<div class="title">This document</div>
+<div class="paragraph"><p>If you&#8217;re new read this section and the <a href="#X10">Getting Started</a>.</p></div>
+</div></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="X10">1. Getting started</h2>
+<div class="sectionbody">
+<div class="imageblock graphviz">
+<div class="content">
+<img alt="sample3.png" src="data:image/png;base64,
+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
+DiIS9v9NDzw92TbXlwAAAABJRU5ErkJggg==" />
+</div>
+<div class="title">Figure 1. Components</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="X11">2. Installation</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_installation_steps">2.1. Installation steps</h3>
+<div class="ulist"><ul>
+<li>
+<p>
+Ubuntu server 10.10x64
+</p>
+</li>
+<li>
+<p>
+Java 6
+</p>
+</li>
+<li>
+<p>
+Maven
+</p>
+</li>
+</ul></div>
+<div class="listingblock">
+<div class="title">MySql 5</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>$ sudo apt<span style="color: #990000">-</span>get install mysql<span style="color: #990000">-</span>server mysql<span style="color: #990000">-</span>client
+<span style="font-style: italic"><span style="color: #9A1900">#Server version:                5.1.49-1ubuntu8.1 (Ubuntu)</span></span></tt></pre></div></div>
+<div class="listingblock">
+<div class="title">Tomcat 6</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>$ sudo apt<span style="color: #990000">-</span>get install tomcat6 tomcat6<span style="color: #990000">-</span>admin tomcat6<span style="color: #990000">-</span>common tomcat6<span style="color: #990000">-</span>user tomcat6<span style="color: #990000">-</span>docs tomcat6<span style="color: #990000">-</span>examples</tt></pre></div></div>
+<div class="listingblock">
+<div class="title">Database preparation</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>$ mysql <span style="color: #990000">-</span>u root <span style="color: #990000">-</span>p
+drop database <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> exists sia<span style="color: #990000">;</span>
+create database sia<span style="color: #990000">;</span>
+use sia<span style="color: #990000">;</span>
+drop table <span style="font-weight: bold"><span style="color: #0000FF">if</span></span> exists ITEM<span style="color: #990000">;</span>
+create table <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>
+    productid <span style="font-weight: bold"><span style="color: #000000">varchar</span></span><span style="color: #990000">(</span><span style="color: #993399">10</span><span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #0000FF">not</span></span> null<span style="color: #990000">,</span>
+    category <span style="font-weight: bold"><span style="color: #000000">varchar</span></span><span style="color: #990000">(</span><span style="color: #993399">10</span><span style="color: #990000">)</span> null<span style="color: #990000">,</span>
+    name <span style="font-weight: bold"><span style="color: #000000">varchar</span></span><span style="color: #990000">(</span><span style="color: #993399">80</span><span style="color: #990000">)</span> null<span style="color: #990000">,</span>
+    description <span style="font-weight: bold"><span style="color: #000000">varchar</span></span><span style="color: #990000">(</span><span style="color: #993399">255</span><span style="color: #990000">)</span> null<span style="color: #990000">,</span>
+    amnt integer null<span style="color: #990000">,</span>
+    constraint pk_product primary <span style="font-weight: bold"><span style="color: #000000">key</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">)</span>
+<span style="color: #990000">);</span></tt></pre></div></div>
+<div class="listingblock">
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00010"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 1"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00011"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 2"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 2"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00012"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 3"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 3"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00013"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 4"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 4"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00014"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 5"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 5"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00015"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 6"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 6"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00016"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 7"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 7"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00017"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 8"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 8"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00018"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 9"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 9"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00019"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 10"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 10"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span>
+INSERT INTO <span style="font-weight: bold"><span style="color: #000000">ITEM</span></span> <span style="color: #990000">(</span>productid<span style="color: #990000">,</span>category<span style="color: #990000">,</span>name<span style="color: #990000">,</span>description<span style="color: #990000">,</span>amnt<span style="color: #990000">)</span> <span style="font-weight: bold"><span style="color: #000000">VALUES</span></span> <span style="color: #990000">(</span><span style="color: #FF0000">"00020"</span><span style="color: #990000">,</span><span style="color: #FF0000">"CAT1"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 11"</span><span style="color: #990000">,</span><span style="color: #FF0000">"ITEM 11"</span><span style="color: #990000">,</span> <span style="color: #993399">100</span><span style="color: #990000">);</span></tt></pre></div></div>
+<div class="listingblock">
+<div class="title">Configure DataSource</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt>In $SIA<span style="color: #990000">/</span>src<span style="color: #990000">/</span>main<span style="color: #990000">/</span>webapp<span style="color: #990000">/</span>WEB<span style="color: #990000">-</span>INF<span style="color: #990000">/</span>applicationContext<span style="color: #990000">.</span>xml
+put the correct username <span style="font-weight: bold"><span style="color: #0000FF">and</span></span> password <span style="font-weight: bold"><span style="color: #0000FF">for</span></span> MySql
+<span style="color: #990000">&lt;!--</span> MySql database <span style="font-weight: bold"><span style="color: #0000FF">and</span></span> a datasource <span style="color: #990000">--&gt;</span>
+ <span style="color: #990000">&lt;</span>bean id<span style="color: #990000">=</span><span style="color: #FF0000">"dataSource"</span> <span style="font-weight: bold"><span style="color: #0000FF">class</span></span><span style="color: #990000">=</span><span style="color: #FF0000">"org.apache.commons.dbcp.BasicDataSource"</span><span style="color: #990000">&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"driverClassName"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"com.mysql.jdbc.Driver"</span> <span style="color: #990000">/&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"url"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"jdbc:mysql://localhost/sia"</span> <span style="color: #990000">/&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"username"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"root"</span> <span style="color: #990000">/&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"password"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"root"</span> <span style="color: #990000">/&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"initialSize"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"3"</span> <span style="color: #990000">/&gt;</span>
+         <span style="color: #990000">&lt;</span>property name<span style="color: #990000">=</span><span style="color: #FF0000">"maxActive"</span> value<span style="color: #990000">=</span><span style="color: #FF0000">"10"</span> <span style="color: #990000">/&gt;</span>
+ <span style="color: #990000">&lt;/</span>bean<span style="color: #990000">&gt;</span></tt></pre></div></div>
+<div class="listingblock">
+<div class="title">Build from source</div>
+<div class="content"><!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><span style="font-weight: bold"><span style="color: #0000FF">in</span></span> project dir $SIA <span style="font-weight: bold"><span style="color: #0000FF">in</span></span> terminal run
+$ mvn package
+deployment file <span style="font-weight: bold"><span style="color: #0000FF">is</span></span> $SIA<span style="color: #990000">/</span>target<span style="color: #990000">/</span>sia<span style="color: #990000">.</span>war</tt></pre></div></div>
+<div class="paragraph"><div class="title">Deploy sia.war with Tomcat Web Application Manager</div><p>Access on
+<a href="http://localhost:8080/sia">http://localhost:8080/sia</a></p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr /></div>
+<div id="footer">
+<div id="footer-text">
+Version 0.1.0<br />
+Last updated 2011-09-26 02:13:10 EEST
+</div>
+</div>
+</body>
+</html>
